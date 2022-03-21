@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>List customer</title>-->
+<!--</head>-->
+<hedh th:replace="/customer/layout::head"></hedh>
+<body>
+<h3>List customer</h3>
+<a th:href="@{/customers/list}">Back to list customer</a><br>
+<a th:href="@{/customers/create}">Create new customer</a>
+<div class="notify">
+    <div th:if="${success}">
+        <span th:text="${success}"></span>
+    </div>
+</div>
+<table id="customers">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th colspan="2">Action</th>
+    </tr>
+    <tr th:each="customer : ${customers}">
+        <td th:text="${customer.getId()}"></td>
+        <td><a th:href="@{/customers/__${customer.getId()}__}" th:text="${customer.getName()}"></a></td>
+        <td th:text="${customer.getEmail()}"></td>
+        <td th:text="${customer.getAddress()}"></td>
+        <td><a th:href="@{/customers/edit/__${customer.getId()}__}">Edit</a></td>
+        <td><a th:href="@{/customers/delete/__${customer.getId()}__}">Delete</a></td>
+    </tr>
+</table>
+<footer th:replace="/customer/layout::footer"></footer>
+</body>
+</html>

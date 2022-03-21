@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete customer</title>
+</head>
+<body>
+<h1>Customer Detail</h1>
+<a th:href="@{/customers/list}">Back to list customer</a>
+<p th:text="${customer.id}"></p>
+<p th:text="${customer.name}"></p>
+<p th:text="${customer.email}"></p>
+<p th:text="${customer.address}"></p>
+</body>
+</html>
